@@ -1,0 +1,29 @@
+name: Setup Payment Integrity System
+
+on:
+  workflow_dispatch:
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Create project structure
+        run: |
+          mkdir -p app/components
+          mkdir -p app/claims-processing/components
+          mkdir -p app/rules-management/components
+          mkdir -p app/vendor-management/components
+          mkdir -p app/admin
+          mkdir -p app/overpayments
+          mkdir -p app/analytics
+          mkdir -p components/ui
+          mkdir -p types
+          mkdir -p hooks
+          mkdir -p lib
